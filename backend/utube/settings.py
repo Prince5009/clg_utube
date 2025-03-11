@@ -47,7 +47,7 @@ REST_FRAMEWORK = {
     ),
 }
 MIDDLEWARE = [
-    "corsheaders.middleware.CorsMiddleware",  # ✅ Enable CORS
+    "corsheaders.middleware.CorsMiddleware",  # ✅ This should be at the top
     "django.middleware.common.CommonMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -55,6 +55,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
 ]
+
 
 
 ROOT_URLCONF = 'utube.urls'
@@ -84,11 +85,11 @@ WSGI_APPLICATION = 'utube.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'utube_db',   # Replace with your MySQL database name
-        'USER': 'root',        # Replace with your MySQL username
-        'PASSWORD': 'root',  # Replace with your MySQL password
-        'HOST': '127.0.0.1',    # Default MySQL host
-        'PORT': '3306',         # Default MySQL port
+        'NAME': 'utube_db',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
 
@@ -149,3 +150,7 @@ CORS_ALLOWED_ORIGINS = [
 DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 # In settings.py
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CORS_ALLOW_ALL_ORIGINS = True  # ✅ Allow all domains during development
+CORS_ALLOW_CREDENTIALS = True
+
+
